@@ -14,7 +14,6 @@ var Rooms = {
   add: function (room) {
     Rooms._data.add(room);
     RoomsView.render();
-    console.log(Rooms._data, '<< data');
   },
 
   getRooms: (data) => {

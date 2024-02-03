@@ -16,6 +16,7 @@ var RoomsView = {
     // TODO: Perform any work which needs to be done
     // when this view loads.
     RoomsView.$button.click(RoomsView.handleClick);
+    RoomsView.$select.change(RoomsView.handleChange);
   },
 
   render: function() {
@@ -32,10 +33,16 @@ var RoomsView = {
 
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
+
+    // READ: dropdown changes
+    var currentRoom = RoomsView.$select.find(":selected").text();
+    // trigger a render of messageview, based on room name
+    // do we need to pass room number to other things?
+    MessagesView.render(currentRoom);
+
   },
 
   handleClick: function(event) {
-    console.log(this, 'this')
     // TODO: Handle the user clicking the "Add Room" button.
     // click add room
     // render a form
@@ -43,7 +50,6 @@ var RoomsView = {
     // hit submit
     // add that text to ""room storage"""
     // wrap that ""room storage"" in <option> tags and append to select
-    console.log(Rooms, '<<<<<rooms')
     var newRoom = prompt('what room add?')
     Rooms.add(newRoom)
   }

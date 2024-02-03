@@ -22,7 +22,7 @@ var App = {
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
     // setinterval function every 5s call fetch
-    setInterval(App.fetch, 50000);
+    setInterval(App.fetch, 15000);
 
   },
 
