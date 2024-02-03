@@ -5,9 +5,24 @@
 var Rooms = {
 
   // TODO: Define how you want to store the list of rooms
-  _data: null,
+
+  _data: new Set(),
 
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
+
+  add: function (room) {
+    Rooms._data.add(room);
+    RoomsView.render();
+    console.log(Rooms._data, '<< data');
+  },
+
+  getRooms: (data) => {
+    //data roomname, add to set
+    data.forEach((element) => Rooms._data.add(element.roomname));
+    //call our roomView render method
+    RoomsView.render();
+
+  }
 
 };

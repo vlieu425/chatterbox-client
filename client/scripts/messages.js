@@ -10,4 +10,11 @@ var Messages = {
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
 
+  getMessages: (data) => {
+    Messages._data = data;
+    MessagesView.render();
+
+    // console.log(Messages._data, 'messagesdata')
+  }
+
 };
