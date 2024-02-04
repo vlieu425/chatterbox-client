@@ -9,7 +9,7 @@ var MessagesView = {
     // TODO: Perform any work which needs to be done
     // when this view loads.
     // look at current room and call rendermessage based on current room
-
+    MessagesView.$chats.on('click', '.username', MessagesView.handleClick);
 
   },
 
@@ -28,7 +28,7 @@ var MessagesView = {
     }
 
     //add a click listener on class username, call the MessagesView.handleClick
-    $('.username').click((event) => MessagesView.handleClick(event));
+    // $('.username').on('click', (event) => MessagesView.handleClick(event));
 
   },
 
@@ -52,21 +52,24 @@ var MessagesView = {
   handleClick: function(event) {
     // if friend exist on the list
     // console.log('in click')
-    console.log(Friends._data[event.currentTarget.innerText], 'friendsdata', Friends._data, 'data')
-    if (Friends._data[event.currentTarget.innerText] !== undefined) {
-      console.log('already a friend')
-      //toggleStatus (event.currentTarget.innerText)
-      Friends.toggleStatus(event.currentTarget.innerText)
-    //else
-    } else {
-      //run addFriend method
-      console.log('not a friend yet')
-      Friends.addFriends(event.currentTarget.innerText)
-      console.log(JSON.stringify(Friends._data), 'friends data')
-      Friends.toggleStatus(event.currentTarget.innerText)
-      console.log(JSON.stringify(Friends._data), 'friends data after toggle')
+    Friends.toggleStatus(event.currentTarget.innerText);
+    //$(event.target).text()
+    console.log(Friends._data);
+    // console.log(Friends._data[event.currentTarget.innerText], 'friendsdata', Friends._data, 'data')
+    // if (Friends._data[event.currentTarget.innerText] !== undefined) {
+    //   console.log('already a friend')
+    //   //toggleStatus (event.currentTarget.innerText)
+    //   Friends.toggleStatus(event.currentTarget.innerText)
+    // //else
+    // } else {
+    //   //run addFriend method
+    //   console.log('not a friend yet')
+    //   Friends.addFriends(event.currentTarget.innerText)
+    //   console.log(JSON.stringify(Friends._data), 'friends data')
+    //   Friends.toggleStatus(event.currentTarget.innerText)
+    //   console.log(JSON.stringify(Friends._data), 'friends data after toggle')
 
-    }
+    // }
 
 
     // TODO: handle a user clicking on a message

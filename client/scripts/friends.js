@@ -24,7 +24,13 @@ var Friends = {
 
   //toggleStatus will just flip the value (true or false)
   toggleStatus: function(friend) {
-    Friends._data[friend] = !Friends._data[friend];
+    if (Friends._data[friend]) {
+      delete Friends._data[friend];
+    } else {
+      Friends._data[friend] = true;
+    }
+    // console.log('TOGGLED')
+    // Friends._data[friend] = !Friends._data[friend];
   }
 
   // click name
